@@ -3,7 +3,7 @@ CREATE DATABASE shopping_cart_db;
 CREATE TABLE users_table (
 id serial,
 name varchar(60) NOT NULL,
-fone numeric(30) NOT NULL,
+phone numeric(30) NOT NULL,
 email varchar(100) NOT NULL,
 PRIMARY KEY(id)
 );
