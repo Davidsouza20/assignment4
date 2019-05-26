@@ -57,6 +57,9 @@
 $query = "SELECT * 
 FROM products"; 
 
+echo '<img src=\"' .'test'. '\" class="card-img-top" alt=\"' .'test'.'\">';
+echo '<img src=\"' .'test'. '\" class="card-img-top" alt=\"' .'test'.'\">';
+echo '<img src=\"' .'test'. '\" class="card-img-top" alt=\"' .'test'.'\">';
 
 foreach ($db->query($query) as $row) {
     $id = $row['id'];
