@@ -65,8 +65,9 @@ foreach ($db->query($query) as $row) {
     echo ' <div class="card-body">';
     echo ' <h5 class="text-center card-title">' .$row['name']. '</h5>';
     echo '<p class="text-center card-text">' .$row['description']. '</p>';
-    echo '<a href="details.php?id='.$id. '" class="text-center btn btn-primary">I Want</a>';
-    echo '</div></div>';
+    echo '<div class="row justify-content-center">'
+    echo '<a href="details.php?id='.$id. '" class="btn btn-primary">I Want</a>';
+    echo '</div></div></div>';
     }
   ?> 
   
