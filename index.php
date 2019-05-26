@@ -57,14 +57,11 @@
 $query = "SELECT * 
 FROM products"; 
 
-echo '<img src=\"' .'test'. '\" class="card-img-top" alt=\"' .'test'.'\">';
-echo '<img src=\"' .'test'. '\" class="card-img-top" alt=\"' .'test'.'\">';
-echo '<img src=\"' .'test'. '\" class="card-img-top" alt=\"' .'test'.'\">';
 
 foreach ($db->query($query) as $row) {
     $id = $row['id'];
     echo '<div class="card" style="width: 18rem;">';
-    echo '<img src=\"' .$row['img_path']. '\" class="card-img-top" alt=\"' .$row['name'].'\">';
+    echo '<img src="' .$row['img_path'].'"'. 'class="card-img-top" alt="' .$row['name'].'">';
     echo ' <div class="card-body">';
     echo ' <h5 class="card-title">' .$row['name']. '</h5>';
     echo '<p class="card-text">' .$row['description']. '</p>';
