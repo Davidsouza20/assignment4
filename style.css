@@ -53,6 +53,7 @@ p {
 
 
 #grid-container {
+margin-top: 30px;
 display: grid;
 grid-template-columns: 33% 33% 33%;
 grid-template-areas: 'card1 card2 card3';
