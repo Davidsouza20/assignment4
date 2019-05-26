@@ -57,12 +57,14 @@ FROM products";
 
 foreach ($db->query($query) as $row) {
     $id = $row['id'];
+    $price = $row['price'];
     setlocale(LC_MONETARY,"en_US");
+    
     echo '<div class="card" style="width: 18rem;">';
     echo '<img src="' .$row['img_path'].'"'. 'class="card-img-top" alt="' .$row['name'].'">';
     echo ' <div class="card-body">';
     echo ' <h5 class="text-center card-title">' .$row['name']. '</h5>';
-    echo ' <h4 class="text-center card-title">' .money_format("$", $row['price']). '</h4>';
+    echo ' <h4 class="text-center card-title">' .money_format("$", $price). '</h4>';
     echo '<p class="text-center card-text">' .$row['description']. '</p>';
     echo '<div class="row justify-content-center">';
     echo '<a href="details.php?id='.$id. '" class="btn btn-primary">I Want</a>';
