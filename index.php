@@ -53,7 +53,12 @@
   
 <div id="grid-container">
 
-<?php foreach ($db->query($query) as $row) {
+<?php 
+$query = "SELECT * 
+FROM products"; 
+
+
+foreach ($db->query($query) as $row) {
     $id = $row['id'];
     echo '<div class="card" style="width: 18rem;">';
     echo '<img src=\"' .$row['img_path']. '\" class="card-img-top" alt=\"' .$row['name'].'\">';
