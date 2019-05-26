@@ -27,8 +27,8 @@ PRIMARY KEY(order_id)
 );
 
 INSERT INTO products (name, price, description, img_path)
-VALUES ('T-Shirt Dance', 29, 'Beautiful, and light T-Shirt to practice sports', 'img/store/1.jpg'),
-('Dark T-Shirt', 39, 'Fashion, ideal to casual uses', 'img/store/2.jpg'),
+VALUES ('T-Shirt Dance', 29, 'Beautiful, and light T-Shirt to practice sports', 'img/store/10.jpg'),
+('Dark T-Shirt', 39, 'Fashion, ideal to casual uses', 'img/store/11.jpg'),
 ('Dark T-Shirt', 35, 'Fashion, ideal to casual uses', 'img/store/3.jpg'),
 ('Dark T-Shirt', 32, 'Fashion, ideal to casual uses', 'img/store/4.jpg'),
 ('Dark T-Shirt', 25, 'Fashion, ideal to casual uses', 'img/store/5.jpg'),
