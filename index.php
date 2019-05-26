@@ -30,16 +30,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#">STORE <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Exercicios</a>
+                  <a class="nav-link" href="#">CART</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Loja</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contato</a>
+                    <a class="nav-link" href="#">CONTACT</a>
                   </li>
                
                 
@@ -60,10 +57,12 @@ FROM products";
 
 foreach ($db->query($query) as $row) {
     $id = $row['id'];
+    setlocale(LC_MONETARY,"en_US");
     echo '<div class="card" style="width: 18rem;">';
     echo '<img src="' .$row['img_path'].'"'. 'class="card-img-top" alt="' .$row['name'].'">';
     echo ' <div class="card-body">';
     echo ' <h5 class="text-center card-title">' .$row['name']. '</h5>';
+    echo ' <h4 class="text-center card-title">' .money_format("$", $row['price']). '</h4>';
     echo '<p class="text-center card-text">' .$row['description']. '</p>';
     echo '<div class="row justify-content-center">';
     echo '<a href="details.php?id='.$id. '" class="btn btn-primary">I Want</a>';
