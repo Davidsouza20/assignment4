@@ -61,17 +61,10 @@
     echo ' <h5 class="card-title">' .$row['name']. '</h5>';
     echo '<p class="card-text">' .$row['description']. '</p>';
     echo '<a href="details.php?id='.$id. '" class="btn btn-primary">I Want</a>';
-
+    echo '</div></div>';
     }
   ?> 
   
-    
-   
-     
-     
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
   </div>
 	
   
