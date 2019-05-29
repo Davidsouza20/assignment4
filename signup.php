@@ -10,7 +10,7 @@
     }
 
 
-    /*/ Validate phone
+    // Validate phone
     if(empty(trim($_POST["phone"]))){
         $phone_err = "Please enter a phone.";     
     } else{
@@ -23,7 +23,7 @@
         $email_err = "Please enter an email.";     
     } else{
         $email = trim($_POST["email"]);
-    }*/
+    }
 
     // Validate password
     if(empty(trim($_POST["password"]))){
@@ -45,7 +45,7 @@
         }
     }
       
-        // Prepare an insert statement
+        /*/ Prepare an insert statement
         $query = 'INSERT INTO users_table (name, phone, email, password) VALUES (:name, :phone, :email, :password)';
          
         $stmt = $db->prepare($query);
@@ -57,7 +57,7 @@
 
         header("location: login.php");
 
-        die();
+        die();*/
 
           
 ?>
