@@ -20,7 +20,7 @@ PRIMARY KEY(id)
 CREATE TABLE orders (
 order_id serial,
 userID serial REFERENCES users_table(id),
-productID serial REFERENCES product(id),
+productID serial REFERENCES products(id),
 date timestamp,
 price decimal(6, 2),
 PRIMARY KEY(order_id)
