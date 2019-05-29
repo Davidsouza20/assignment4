@@ -45,10 +45,12 @@
         }
     }
       
-        /*/ Prepare an insert statement
+        // Prepare an insert statement
         $query = 'INSERT INTO users_table (name, phone, email, password) VALUES (:name, :phone, :email, :password)';
-         
-        $stmt = $db->prepare($query);
+        
+      
+
+       /* $stmt = $db->prepare($query);
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
         $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
@@ -113,6 +115,8 @@
             </div>
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
+
+        <?php echo $query; ?>
     </div>    
 </body>
 </html>
