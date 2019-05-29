@@ -56,8 +56,8 @@
     
     $stmt->execute();
 
-    header("location: login.php");
-    die();
+    //header("location: login.php");
+    //die();
           
 ?>
  
