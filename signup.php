@@ -45,18 +45,19 @@
     
       
     // Prepare an insert statement
-    $query = 'INSERT INTO users_table (name, phone, password, email) VALUES (:username, :phone, :password, :email)';
+    $query = 'INSERT INTO users_table (name, phone, email,  password) VALUES (:username, :phone, :email :password)';
         
       
-    /*$stmt = $db->prepare($query);
+    $stmt = $db->prepare($query);
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
     $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
-    $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
+    
     $stmt->execute();
 
     header("location: login.php");
-    die();*/
+    die();
           
 ?>
  
