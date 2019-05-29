@@ -8,18 +8,21 @@
     } else{
         $username = trim($_POST["username"]);
     }
+
     // Validate phone
     if(empty(trim($_POST["phone"]))){
         $phone_err = "Please enter a phone.";     
     } else{
         $phone = trim($_POST["phone"]);
     }
+
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
     } else{
         $email = trim($_POST["email"]);
     }
+
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
@@ -41,14 +44,14 @@
     }
       
         // Prepare an insert statement
-    $query = 'INSERT INTO users_table (name, phone, email, password) VALUES (:username, :phone, :email, :password)';
+    $query = 'INSERT INTO users_table (name, phone, password, email) VALUES (:username, :phone, :password, :email)';
         
       
         $stmt = $db->prepare($query);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
         header("location: login.php");
