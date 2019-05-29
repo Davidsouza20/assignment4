@@ -45,7 +45,7 @@
         }
     }
       
-        /*/ Prepare an insert statement
+        // Prepare an insert statement
         $query = 'INSERT INTO users_table (name, phone, email, password) VALUES (:username, :phone, :email, :password)';
         
       
@@ -59,7 +59,7 @@
 
         header("location: login.php");
 
-        die();*/
+        die();
 
           
 ?>
