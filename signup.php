@@ -18,18 +18,10 @@
     }
 
 
-    /*/ Validate email
-    $checkEmail = trim($_POST["email"]);
-    $quer = "SELECT * FROM users_table WHERE email='$checkEmail'"; 
-    $stmt = $db->prepare($quer);
-    $stmt->execute();
-    $emails = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
-
+    // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
-    } /*elseif($emails > 0) {
-        $email_err = "Email already in use try another.";
-    }*/ else {
+    } else {
         $email = trim($_POST["email"]);
     }
 
