@@ -2,6 +2,13 @@
     // Include db conection file
     include("dbconection.php");
 
+    // Validate username
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter a username.";     
+    } else{
+        $username = trim($_POST["username"]);
+    }
+
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
