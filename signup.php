@@ -55,8 +55,8 @@
     $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
     $stmt->execute();
 
-    header("location: login.php");
-    die();
+    //header("location: login.php");
+    //die();
           
 ?>
  
