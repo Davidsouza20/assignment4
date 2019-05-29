@@ -19,7 +19,7 @@
 
 
     // Validate email
-    $emai = trim($_POST["email"];
+    $emai = trim($_POST["email"]);
     $emailExists = false;
     $quer = "SELECT * FROM users_table WHERE email='$emai'"; 
     foreach ($db->query($quer) as $row) {
