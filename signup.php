@@ -19,9 +19,19 @@
 
 
     // Validate email
+    $quer = "SELECT email FROM users_table"; 
+    $emailExists = false;
+    foreach ($db->query($quer) as $row) {
+        if (trim($_POST["email"]) == $row['email']) {
+            $emailExists = true;
+        }       
+    }  
+
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
-    } else{
+    } else if($emailExists) {
+        $email_err = "Email already in use try another.";
+    } else {
         $email = trim($_POST["email"]);
     }
 
