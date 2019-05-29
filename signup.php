@@ -48,7 +48,7 @@
     $query = 'INSERT INTO users_table (name, phone, password, email) VALUES (:username, :phone, :password, :email)';
         
       
-    $stmt = $db->prepare($query);
+    /*$stmt = $db->prepare($query);
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
     $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
     $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
@@ -56,7 +56,7 @@
     $stmt->execute();
 
     header("location: login.php");
-    die();
+    die();*/
           
 ?>
  
@@ -111,6 +111,7 @@
             </div>
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
+        <?php echo $query ?>
     </div>    
 </body>
 </html>
