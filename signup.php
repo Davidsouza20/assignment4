@@ -44,7 +44,7 @@
     }
       
         // Prepare an insert statement
-    $query = 'INSERT INTO users_table (name, phone, password, email) VALUES (:username, :phone, :password, :email)';
+    /*$query = 'INSERT INTO users_table (name, phone, password, email) VALUES (:username, :phone, :password, :email)';*/
         
       
         $stmt = $db->prepare($query);
