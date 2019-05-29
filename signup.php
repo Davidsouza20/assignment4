@@ -39,9 +39,9 @@
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         
-        if(empty($password_err) && ($password != $confirm_password)){
+    if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
-        }
+    }
     
       
     // Prepare an insert statement
