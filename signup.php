@@ -19,18 +19,15 @@
 
 
     // Validate email
-    $emai = trim($_POST["email"]);
-    $emailExists = false;
-    $quer = "SELECT * FROM users_table WHERE email='$emai'"; 
-    foreach ($db->query($quer) as $row) {
-        if ($emai == $row['email']) {
-           $emailExists = true;
-        }       
-    }  
+    $checkEmail = trim($_POST["email"]);
+    $quer = "SELECT * FROM users_table WHERE email='$checkEmail'"; 
+    $stmt = $db->prepare($quer);
+    $stmt->execute();
+    $emails = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
-    } elseif($emailExists) {
+    } elseif($emails > 0) {
         $email_err = "Email already in use try another.";
     } else {
         $email = trim($_POST["email"]);
