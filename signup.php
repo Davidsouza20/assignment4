@@ -38,24 +38,25 @@
         $confirm_password_err = "Please confirm password.";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
+        
         if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
         }
-    }
+    
       
-        // Prepare an insert statement
-    /*$query = 'INSERT INTO users_table (name, phone, password, email) VALUES (:username, :phone, :password, :email)';
+    // Prepare an insert statement
+    $query = 'INSERT INTO users_table (name, phone, password, email) VALUES (:username, :phone, :password, :email)';
         
       
-        $stmt = $db->prepare($query);
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-        $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
-        $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->execute();
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+    $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->execute();
 
-        header("location: login.php");
-        die();*/
+    header("location: login.php");
+    die();
           
 ?>
  
