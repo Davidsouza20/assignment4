@@ -27,9 +27,9 @@
 
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
-    } elseif($emails > 0) {
+    } /*elseif($emails > 0) {
         $email_err = "Email already in use try another.";
-    } else {
+    }*/ else {
         $email = trim($_POST["email"]);
     }
 
