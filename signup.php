@@ -23,7 +23,7 @@
     $quer = "SELECT email FROM users_table"; 
     foreach ($db->query($quer) as $row) {
         if (trim($_POST["email"]) == $row['email']) {
-           return $emailExists = true;
+           $emailExists = true;
         }       
     }  
 
