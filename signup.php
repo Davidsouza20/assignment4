@@ -1,7 +1,7 @@
 <?php
     // Include db conection file
     include("dbconection.php");
-    
+
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";     
@@ -44,7 +44,7 @@
     $query = 'INSERT INTO users_table (name, phone, email, password) VALUES (:username, :phone, :email, :password)';
         
       
-    $stmt = $db->prepare($query);
+        $stmt = $db->prepare($query);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
