@@ -5,6 +5,7 @@ id serial,
 name varchar(60) NOT NULL,
 phone numeric(30) NOT NULL,
 email varchar(100) NOT NULL,
+password varchar(255) NOT NULL,
 PRIMARY KEY(id)
 );
 

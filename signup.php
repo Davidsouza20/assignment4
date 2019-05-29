@@ -9,6 +9,22 @@
         $username = trim($_POST["username"]);
     }
 
+
+    // Validate phone
+    if(empty(trim($_POST["phone"]))){
+        $phone_err = "Please enter a phone.";     
+    } else{
+        $phone = trim($_POST["phone"]);
+    }
+
+
+    // Validate email
+    if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter an email.";     
+    } else{
+        $email = trim($_POST["email"]);
+    }
+
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
@@ -16,6 +32,7 @@
         $password_err = "Password must have atleast 6 characters.";
     } else{
         $password = trim($_POST["password"]);
+        $param_password = password_hash($password, PASSWORD_DEFAULT);
     }
     
     // Validate confirm password
@@ -27,41 +44,22 @@
             $confirm_password_err = "Password did not match.";
         }
     }
-    
-    // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-    }   
-        // Prepare an insert statement
-        /*$sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-         
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-        
-        
       
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Something went wrong. Please try again later.";
-            }
-        }
+        // Prepare an insert statement
+        $query = 'INSERT INTO users_table (name, phone, email, password) VALUES (:name, :phone, :email, :password)';
          
-        // Close statement
-        mysqli_stmt_close($stmt);
-    }
-    
-    // Close connection
-    mysqli_close($link);
-}*/
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':password', $param_password, PDO::PARAM_STR);
+        $stmt->execute();
+
+        header("location: login.php");
+
+        die();
+
+          
 ?>
  
 <!DOCTYPE html>
@@ -84,7 +82,21 @@
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
+            </div>  
+
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Phone</label>
+                <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                <span class="help-block"><?php echo $phone_err; ?></span>
+            </div>  
+
+            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div>  
+
+
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
                 <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
