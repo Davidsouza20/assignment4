@@ -18,8 +18,7 @@
 
   
 
-    $statement = $db->query("SELECT * FROM users_table WHERE email = '$email'");
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
 
 
     // Validate email
@@ -108,7 +107,8 @@
     </div>    
 
     <?php
-    echo "SELECT * FROM users_table WHERE email = '$email'";
+    $statement = $db->query("SELECT * FROM users_table WHERE email = '$email'");
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     foreach($results as $result) {
         echo $result['email'];
     } ?>
