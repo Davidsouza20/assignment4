@@ -74,7 +74,7 @@
                 <span class="text-center text-danger"><?php echo $validation_err; ?></span>
             </div>  
 
-            <div class="form-group col-md-4 text-center">
+            <div class="form-group text-center">
                 <input type="submit" class="btn btn-primary" value="Sign in">
             </div>
             <p class="text-center"> <a href="signup.php">Create account</a>.</p>
