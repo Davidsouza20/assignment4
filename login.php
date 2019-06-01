@@ -56,7 +56,7 @@
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             
-            <div class="form-group center-block">
+            <div class="form-group col-md-4 text-center">
                 <input type="submit" class="btn btn-primary" value="Sign in">
             </div>
             <p>Do not have an account? <a href="signup.php">Create account</a>.</p>
