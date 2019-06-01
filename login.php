@@ -27,6 +27,27 @@
         $password = trim($_POST["password"]);
     }
 
+    try {
+        $query = "SELECT * FROM users_table WHERE email = '$email'";
+        $stmt = $db->prepare($query);
+        $stmt->execute();   
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(password_verify($password, $rows[0]['hashpassword'])) {
+            /*session_register("myusername");
+            $_SESSION['login_user'] = $email;*/
+            header("location: index.php");
+
+        } else {
+            $validation_err = "Email or Password is invalid";
+        }
+        die();
+    
+    }
+    catch (Exception $ex) {
+        echo "I am getting the following error:  $ex";
+        die();
+    }
+
 ?>
  
 <!DOCTYPE html>
@@ -68,25 +89,3 @@
     </body>
 </html>
 
-<?php          
-         try {
-            $query = "SELECT * FROM users_table WHERE email = '$email'";
-            $stmt = $db->prepare($query);
-            $stmt->execute();   
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if(password_verify($password, $rows[0]['hashpassword'])) {
-                /*session_register("myusername");
-                $_SESSION['login_user'] = $email;*/
-                header("location: index.php");
-
-            } else {
-                $validation_err = "Email or Password is invalid";
-            }
-            die();
-        
-        }
-        catch (Exception $ex) {
-            echo "I am getting the following error:  $ex";
-            die();
-        }
-    ?>
