@@ -20,13 +20,11 @@
     $checkMail = trim($_POST["email"]);
     $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkMail'");
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
-    
-
-
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
+    } elseif (!filter_var($checkMail, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format"; 
     } elseif($results >= 1) {
         $email_err = "This email already exists.";
     } else{
