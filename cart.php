@@ -5,7 +5,10 @@
         header('Location: login.php');
         exit();
     }
+    else {
+        echo "Welcome Dear" .$_SESSION['login_user'];
 
+    }
 
 
 

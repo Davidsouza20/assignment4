@@ -29,9 +29,8 @@
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(password_verify($password, $rows[0]['hashpassword'])) {
             session_start();
-            $_SESSION['login_user'] = $email;
+            $_SESSION['login_user'] = $rows[0]['username'];
             header("location: cart.php");
-
         } else {
             $validation_err = "Email or Password is invalid";
         }
