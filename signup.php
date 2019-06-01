@@ -18,7 +18,7 @@
 
   
 
-    $statement = $db->query("SELECT * FROM users_table WHERE email = '$email' LIMIT 1");
+    $statement = $db->query("SELECT * FROM users_table");
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
