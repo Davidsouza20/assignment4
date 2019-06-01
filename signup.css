@@ -1,4 +1,9 @@
 body {
-    background-color: red;
+    font: 14px sans-serif;
+}
 
+.wrapper{ 
+    width: 350px; 
+    padding: 20px; 
+    margin: 10px auto;
 }
