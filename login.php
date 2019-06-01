@@ -5,7 +5,7 @@
 
         $checkMail = trim($_POST["email"]);
         $password = trim($_POST["password"]);
-       
+        $param_password = password_hash($password, PASSWORD_DEFAULT);
         /*if (count($results) >= 1) {            
              header("location: index.php");
           }else {
@@ -70,27 +70,26 @@
             <p>Do not have an account? <a href="signup.php">Create account</a>.</p>
         </form>
     </div>    
-    <?php 
-         echo $checkMail;
-         
-        $param_password = password_hash($password, PASSWORD_DEFAULT);
-        $statement = $db->query("SELECT email, hashpassword FROM users_table WHERE email = '$checkMail' AND hashpassword ='$param_password'");
-        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-         if ($results) {
-            echo 'success';
-         }
-
-         die();
-    ?>
     </body>
 </html>
 
-
-
 <?php 
-
-
-
-
-
-?>
+         echo $checkMail;
+         
+         try {
+            $query = 'INSERT INTO users_table (username, phone, email, hashpassword) VALUES (:username, :phone, :email, :hashpassword)'; 
+            $query = 'SELECT email, hashpassword FROM users_table WHERE email = :email AND hashpassword = :hashpassword';
+            
+            $stmt = $db->prepare($query);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
+            $stmt->execute();   
+            header("location: index.php");
+            die();
+        
+        }
+        catch (Exception $ex) {
+            echo "I am getting the following error:  $ex";
+            die();
+        }
+    ?>
