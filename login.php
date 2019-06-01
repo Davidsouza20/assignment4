@@ -75,7 +75,7 @@
 
 <?php          
          try {
-            $query = 'SELECT * FROM users_table WHERE email = :email AND hashpassword = :hashpassword';
+            $query = 'SELECT * FROM users_table';
             
             $stmt = $db->prepare($query);
             $stmt->bindValue(':email', $email, PDO::PARAM_STR);
