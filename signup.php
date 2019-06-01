@@ -18,7 +18,9 @@
 
   
 
-    $statement = $db->query("SELECT * FROM users_table");
+    $statement = $db->query("SELECT * FROM users_table WHERE email = :email");
+    $statement->bindValue(':email', $email, PDO::PARAM_STR);
+    $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
