@@ -108,7 +108,7 @@
     </div>    
 
     <?php foreach($results as $result) {
-        echo $result;
+        echo $result['email'];
     } ?>
 
 </body>
