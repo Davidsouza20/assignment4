@@ -3,13 +3,8 @@
     include("dbconection.php");
     
 
-        $checkMail = trim($_POST["email"]);
-        $password = trim($_POST["password"]);
-       
-        
-       
-
-
+    $checkMail = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
@@ -33,9 +28,9 @@
         $stmt->execute();   
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(password_verify($password, $rows[0]['hashpassword'])) {
-            /*session_register("myusername");
-            $_SESSION['login_user'] = $email;*/
-            header("location: index.php");
+            session_start();
+            $_SESSION['login_user'] = $email;
+            header("location: cart.php");
 
         } else {
             $validation_err = "Email or Password is invalid";
