@@ -8,3 +8,7 @@ body {
     margin: 10px auto;
     box-shadow: 1px 1px 22px -1px #C1B2B2;
 }
+
+h2 {
+    text-align: center;
+}
