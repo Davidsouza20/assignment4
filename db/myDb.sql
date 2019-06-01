@@ -2,10 +2,10 @@ CREATE DATABASE shopping_cart_db;
 
 CREATE TABLE users_table (
 id serial,
-name varchar(255) NOT NULL,
+username varchar(255) NOT NULL,
 phone numeric(255) NOT NULL,
 email varchar(255) UNIQUE NOT NULL,
-password varchar(255) NOT NULL,
+hashpassword varchar(255) NOT NULL,
 PRIMARY KEY(id)
 );
 
