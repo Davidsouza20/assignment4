@@ -42,24 +42,6 @@
     if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
     }
-
-    try {
-        $query = 'INSERT INTO users_table (username, phone, email, hashpassword) VALUES (:username, :phone, :email, :hashpassword)'; 
-        $stmt = $db->prepare($query);
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-        $stmt->bindValue(':phone', $phone, PDO::PARAM_INT);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->bindValue(':hashpassword', $password, PDO::PARAM_STR);
-        $stmt->execute();   
-    
-    }
-    catch (Exception $ex) {
-        echo "Error with DB. Details: $ex";
-        die();
-    }
-    
-
-
 ?>
  
 <!DOCTYPE html>
@@ -114,19 +96,25 @@
             </div>
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
-        <?php 
-            echo $username;
-            echo $username_err;
-            echo $phone;
-            echo $phone_err;
-            echo $email;
-            echo $email_err;
-            echo $password;
-            echo $password_err;
-        
-        
-        ?>
     </div>    
 </body>
 </html>
 
+<?php    
+     try {
+        $query = 'INSERT INTO users_table (username, phone, email, hashpassword) VALUES (:username, :phone, :email, :hashpassword)'; 
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+        $stmt->bindValue(':phone', $phone, PDO::PARAM_INT);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':hashpassword', $password, PDO::PARAM_STR);
+        $stmt->execute();   
+    
+    }
+    catch (Exception $ex) {
+        echo "Error with DB. Details: $ex";
+        die();
+    }
+
+
+?>
