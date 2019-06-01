@@ -9,8 +9,8 @@ body {
 }
 
 .wrapper {
-  max-width: 500px;
-  margin: 50px auto;
+  width: 350px; 
+  padding: 20px; 
 }
 
 #logo-img {
