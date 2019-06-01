@@ -88,7 +88,7 @@
                 echo "query success";
             }
             else {
-            header("location: index.php");
+                echo "not success";
             }
             die();
         
