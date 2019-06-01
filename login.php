@@ -4,7 +4,7 @@
 
     
     $checkMail = trim($_POST["email"]);
-    $password = trim($_POST["hashpassword"]);
+    $password = trim($_POST["password"]);
     $param_password = password_hash($password, PASSWORD_DEFAULT);
     $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkMail' AND hashpassword ='$param_password'");
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
