@@ -16,9 +16,11 @@
         $phone = trim($_POST["phone"]);
     }
 
-    $query1 = "SELECT * FROM users_table WHERE email = '$email' LIMIT 1";
-    $result = pg_query($db, $query1);
-    $rows = pg_num_rows($result);
+  
+
+    $statement = $db->query("SELECT * FROM users_table WHERE email = '$email' LIMIT 1");
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 
     // Validate email
     if(empty(trim($_POST["email"]))){
@@ -105,7 +107,7 @@
         </form>
     </div>    
 
-    <?php echo $rows; ?>
+    <?php echo $results; ?>
 
 </body>
 </html>
