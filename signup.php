@@ -107,7 +107,9 @@
         </form>
     </div>    
 
-    <?php foreach($results as $result) {
+    <?php
+    echo "SELECT * FROM users_table WHERE email = '$email'";
+    foreach($results as $result) {
         echo $result['email'];
     } ?>
 
