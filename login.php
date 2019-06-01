@@ -9,7 +9,7 @@
         $statement = $db->query("SELECT email, hashpassword FROM users_table WHERE email = '$checkMail' AND hashpassword ='$param_password'");
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         
-        if (count($results) >= 1) ;             
+        if (count($results) >= 1) {            
              header("location: index.php");
           }else {
             $validation_err = "Your Login Name or Password is invalid";
