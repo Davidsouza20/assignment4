@@ -55,6 +55,10 @@
         <p>Please fill this form to sign in.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         
+        <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <span class="help-block"><?php echo $validation_err; ?></span>
+            </div>  
+
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                 <label>Email</label>
                 <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">

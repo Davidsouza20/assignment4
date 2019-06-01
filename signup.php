@@ -119,6 +119,7 @@
     
     }
     catch (Exception $ex) {
+        echo "I am getting the following error:  $ex";
         die();
     }
 
