@@ -18,10 +18,7 @@
 
 
     
-    $checkMail = trim($_POST["email"]);
-    $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkEmail'");
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+    
     
 
 
@@ -111,6 +108,10 @@
     </div>    
 
     <?php
+        $checkMail = trim($_POST["email"]);
+        $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkEmail'");
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
         echo sizeof($results);
      ?>
 
