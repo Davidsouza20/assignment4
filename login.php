@@ -82,7 +82,7 @@
             <p>Do not have an account? <a href="signup.php">Create account</a>.</p>
         </form>
     </div>    
-
+    <?php  echo sizeof($results);    ?>
     </body>
 </html>
 
