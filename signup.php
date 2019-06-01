@@ -107,7 +107,9 @@
         </form>
     </div>    
 
-    <?php echo $results->email; ?>
+    <?php foreach($results as $result) {
+        echo $result;
+    } ?>
 
 </body>
 </html>
