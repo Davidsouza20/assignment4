@@ -3,7 +3,6 @@
     include("dbconection.php");
     
 
-    try {
         $checkMail = trim($_POST["email"]);
         $password = trim($_POST["password"]);
         $param_password = password_hash($password, PASSWORD_DEFAULT);
@@ -18,11 +17,6 @@
           }else {
             $validation_err = "Your Login Name or Password is invalid";
           }
-        }
-        catch (Exception $ex) {
-            echo "I am getting the following error:  $ex";
-            die();
-        }
        
 
 
@@ -82,7 +76,7 @@
             <p>Do not have an account? <a href="signup.php">Create account</a>.</p>
         </form>
     </div>    
-    <?php  echo sizeof($results);    ?>
+    <?php  echo count($results);    ?>
     </body>
 </html>
 
