@@ -16,7 +16,6 @@
         $phone = trim($_POST["phone"]);
     }
 
-
     $checkMail = trim($_POST["email"]);
     $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkMail'");
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -105,14 +104,7 @@
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
     </div>    
-
-    <?php
-       
-
-        echo sizeof($results);
-     ?>
-
-</body>
+    </body>
 </html>
 
 <?php    
@@ -129,7 +121,7 @@
     
     }
     catch (Exception $ex) {
-        //echo "Error with DB. Details: $ex";
+        echo "Error with DB. Details: $ex";
         die();
     }
 
