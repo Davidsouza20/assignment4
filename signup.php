@@ -51,7 +51,6 @@
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
     $stmt->execute();    
-    header("location: login.php");
 ?>
  
 <!DOCTYPE html>
