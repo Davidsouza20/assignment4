@@ -79,6 +79,8 @@
          if ($results) {
             echo 'success';
          }
+
+         die();
     ?>
     </body>
 </html>
