@@ -40,7 +40,6 @@
         } else {
             $validation_err = "Email or Password is invalid";
         }
-        die();
     
     }
     catch (Exception $ex) {
