@@ -77,14 +77,19 @@
          echo $checkMail;
          
          try {
-            $query = 'INSERT INTO users_table (username, phone, email, hashpassword) VALUES (:username, :phone, :email, :hashpassword)'; 
             $query = 'SELECT email, hashpassword FROM users_table WHERE email = :email AND hashpassword = :hashpassword';
             
             $stmt = $db->prepare($query);
             $stmt->bindValue(':email', $email, PDO::PARAM_STR);
             $stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
             $stmt->execute();   
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if ($rows) {
+                echo "query success";
+            }
+            else {
             header("location: index.php");
+            }
             die();
         
         }
