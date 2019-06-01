@@ -76,7 +76,7 @@
             <p>Do not have an account? <a href="signup.php">Create account</a>.</p>
         </form>
     </div>    
-    <?php  echo "test"  ?>
+    <?php  echo $param_password;  ?>
     </body>
 </html>
 
