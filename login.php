@@ -82,13 +82,7 @@
             $stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
             $stmt->execute();   
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if ($rows) {
-                echo "query success";
-            }
-            else {
-                echo "not success";
-                echo $password;
-            }
+            var_dump($rows);
             die();
         
         }
