@@ -83,7 +83,7 @@
             <div class="form-group col-md-4 text-center">
                 <input type="submit" class="btn btn-primary" value="Sign in">
             </div>
-            <p>Do not have an account? <a href="signup.php">Create account</a>.</p>
+            <p> <a href="signup.php">Create account</a>.</p>
         </form>
     </div>    
     </body>
