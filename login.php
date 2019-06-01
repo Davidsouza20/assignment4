@@ -73,9 +73,7 @@
     </body>
 </html>
 
-<?php 
-         echo $checkMail;
-         
+<?php          
          try {
             $query = 'SELECT * FROM users_table WHERE email = :email AND hashpassword = :hashpassword';
             
@@ -89,6 +87,7 @@
             }
             else {
                 echo "not success";
+                echo $password;
             }
             die();
         
