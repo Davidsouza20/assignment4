@@ -110,6 +110,7 @@
         $stmt->bindValue(':hashpassword', $password, PDO::PARAM_STR);
         $stmt->execute();   
         header("location: login.php");
+        die();
     
     }
     catch (Exception $ex) {
