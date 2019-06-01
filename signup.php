@@ -43,10 +43,14 @@
             $confirm_password_err = "Password did not match.";
     }
     
-      
-  
-  
-          
+    
+    $query = 'INSERT INTO users_table (name, phone, email, password) VALUES (:name, :phone, :email, :password)'; 
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':name', $username, PDO::PARAM_STR);
+    $stmt->bindValue(':phone', $phone, PDO::PARAM_INT);
+    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+    $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+    $stmt->execute();    
 ?>
  
 <!DOCTYPE html>
