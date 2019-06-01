@@ -73,7 +73,9 @@
             <p>Do not have an account? <a href="signup.php">Create account</a>.</p>
         </form>
     </div>    
-    <?php  echo $param_password;  ?>
+    <?php  foreach ($results as $result) {
+        echo $result['email'];
+    }  ?>
     </body>
 </html>
 
