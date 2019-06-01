@@ -89,6 +89,8 @@
             }
             else {
                 echo "not success";
+                echo $query;
+                
             }
             die();
         
