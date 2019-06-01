@@ -16,10 +16,17 @@
         $phone = trim($_POST["phone"]);
     }
 
+    $query1 = "SELECT * FROM users_table WHERE email = '$email' LIMIT 1";
+    $result = pg_query($db, $query1);
+    $rows = pg_num_rows($result);
+
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
-    } else{
+    } 
+    
+    
+    else{
         $email = trim($_POST["email"]);
     }
 
@@ -97,6 +104,9 @@
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
     </div>    
+
+    <?php echo $rows; ?>
+    
 </body>
 </html>
 
