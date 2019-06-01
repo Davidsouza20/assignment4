@@ -27,10 +27,9 @@
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";     
-    } 
-    
-    
-    else{
+    } elseif($results >= 1) {
+        $email_err = "This email already exists.";
+    } else{
         $email = trim($_POST["email"]);
     }
 
