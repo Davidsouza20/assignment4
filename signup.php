@@ -107,7 +107,7 @@
         </form>
     </div>    
 
-    <?php echo $results; ?>
+    <?php echo sizeof($results); ?>
 
 </body>
 </html>
