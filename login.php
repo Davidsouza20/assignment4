@@ -7,10 +7,10 @@
         $checkMail = trim($_POST["email"]);
         $password = trim($_POST["password"]);
         $param_password = password_hash($password, PASSWORD_DEFAULT);
-        $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkMail' AND hashpassword ='$param_password'");
+        $statement = $db->query("SELECT email, hashpassword FROM users_table WHERE email = '$checkMail' AND hashpassword ='$param_password'");
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         
-        if ($results == 1) {
+        if (count($results) >= 1) {
             session_register("myusername");
              $_SESSION['login_user'] = $myusername;
              
