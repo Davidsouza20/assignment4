@@ -1,7 +1,7 @@
 <?php
     // Include db conection file
     include("dbconection.php");
-
+    $checkMail = trim($_POST["email"]);
     
 
     // Validate email
