@@ -16,7 +16,11 @@
         $phone = trim($_POST["phone"]);
     }
 
-  
+
+    
+    $checkMail = trim($_POST["email"]);
+    $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkEmail'");
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     
 
@@ -107,11 +111,8 @@
     </div>    
 
     <?php
-    $statement = $db->query("SELECT * FROM users_table WHERE email = '$email'");
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    foreach($results as $result) {
-        echo $result['email'];
-    } ?>
+        echo sizeof($results);
+     ?>
 
 </body>
 </html>
