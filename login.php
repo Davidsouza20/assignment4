@@ -6,11 +6,7 @@
         $checkMail = trim($_POST["email"]);
         $password = trim($_POST["password"]);
        
-        /*if (count($results) >= 1) {            
-             header("location: index.php");
-          }else {
-            $validation_err = "Your Login Name or Password is invalid";
-          }*/
+        
        
 
 
@@ -50,7 +46,7 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         
         <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                <span class="help-block"><?php echo $validation_err; ?></span>
+                <span class="help-block text-danger text-center"><?php echo $validation_err; ?></span>
             </div>  
 
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
@@ -79,11 +75,13 @@
             $stmt->execute();   
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if(password_verify($password, $rows[0]['hashpassword'])) {
-                echo "Success";
-            }
+                /*session_register("myusername");
+                $_SESSION['login_user'] = $email;*/
+                header("location: index.php");
 
-            echo $rows[0]['hashpassword'];
-            var_dump($rows);
+            } else {
+                $validation_err = "Email or Password is invalid";
+            }
             die();
         
         }
