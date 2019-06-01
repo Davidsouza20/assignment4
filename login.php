@@ -77,7 +77,7 @@
             </div>  
 
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-                <span class="col-md-4 text-center text-danger"><?php echo $validation_err; ?></span>
+                <span class="text-center text-danger"><?php echo $validation_err; ?></span>
             </div>  
 
             <div class="form-group col-md-4 text-center">
