@@ -78,9 +78,11 @@
             $stmt = $db->prepare($query);
             $stmt->execute();   
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if(password_verify($password, $rows[0]['hashpasswprd'])) {
+            if(password_verify($password, $rows[0]['hashpassword'])) {
                 echo "Success";
             }
+
+            echo $rows[0]['hashpassword'];
             var_dump($rows);
             die();
         
