@@ -76,10 +76,9 @@
 <?php          
          try {
             $query = 'SELECT * FROM users_table';
-            
             $stmt = $db->prepare($query);
-            $stmt->bindValue(':email', $checkMail, PDO::PARAM_STR);
-            $stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
+            //$stmt->bindValue(':email', $checkMail, PDO::PARAM_STR);
+            //$stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
             $stmt->execute();   
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             var_dump($rows);
