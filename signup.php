@@ -106,7 +106,7 @@
     </div>    
 
     <?php echo $rows; ?>
-    
+
 </body>
 </html>
 
@@ -124,7 +124,7 @@
     
     }
     catch (Exception $ex) {
-        echo "Error with DB. Details: $ex";
+        //echo "Error with DB. Details: $ex";
         die();
     }
 
