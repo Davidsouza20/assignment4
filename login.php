@@ -2,26 +2,7 @@
     // Include db conection file
     include("dbconection.php");
 
-    try {
-    $checkMail = trim($_POST["email"]);
-    $password = trim($_POST["password"]);
-    $param_password = password_hash($password, PASSWORD_DEFAULT);
-    $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkMail' AND hashpassword ='$param_password'");
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     
-    if ($results == 1) {
-        session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
-         
-         header("location: index.php");
-      }else {
-        $validation_err = "Your Login Name or Password is invalid";
-      }
-    }
-    catch (Exception $ex) {
-        echo "I am getting the following error:  $ex";
-        die();
-    }
 
     // Validate email
     if(empty(trim($_POST["email"]))){
@@ -81,3 +62,32 @@
     </div>    
     </body>
 </html>
+
+
+
+<?php 
+try {
+    $checkMail = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
+    $param_password = password_hash($password, PASSWORD_DEFAULT);
+    $statement = $db->query("SELECT * FROM users_table WHERE email = '$checkMail' AND hashpassword ='$param_password'");
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
+    if ($results == 1) {
+        session_register("myusername");
+         $_SESSION['login_user'] = $myusername;
+         
+         header("location: index.php");
+      }else {
+        $validation_err = "Your Login Name or Password is invalid";
+      }
+    }
+    catch (Exception $ex) {
+        echo "I am getting the following error:  $ex";
+        die();
+    }
+
+
+
+
+?>
