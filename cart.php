@@ -9,7 +9,7 @@
     }
     
     else {
-        echo "Welcome Dear " . $_SESSION['login_user'];
+        echo "<h1>Welcome Dear " . $_SESSION['login_user']. "</h1>";
     }
 
 
