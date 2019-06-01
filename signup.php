@@ -42,27 +42,28 @@
     if(empty($password_err) && ($password != $confirm_password)){
             $confirm_password_err = "Password did not match.";
     }
-    
-    try {
 
-  
-    $query = 'INSERT INTO users_table (username, phone, email, hashpassword) VALUES (:username, :phone, :email, :hashpassword)'; 
-    $stmt = $db->prepare($query);
-    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-    $stmt->bindValue(':phone', $phone, PDO::PARAM_NUM);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-    $stmt->bindValue(':hashpassword', $password, PDO::PARAM_STR);
-    $stmt->execute();   
+    try {
+        $query = 'INSERT INTO users_table (username, phone, email, hashpassword) VALUES (:username, :phone, :email, :hashpassword)'; 
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+        $stmt->bindValue(':phone', $phone, PDO::PARAM_INT);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':hashpassword', $password, PDO::PARAM_STR);
+        $stmt->execute();   
     
     }
     catch (Exception $ex) {
         echo "Error with DB. Details: $ex";
         die();
     }
+    
+
 
 ?>
  
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
