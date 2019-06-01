@@ -107,7 +107,7 @@
         </form>
     </div>    
 
-    <?php echo $results[0]; ?>
+    <?php echo $results->email; ?>
 
 </body>
 </html>
