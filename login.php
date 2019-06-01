@@ -84,13 +84,13 @@
             $stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
             $stmt->execute();   
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if ($rows) {
+            if (sizeof($rows) >= 1) {
                 echo "query success";
             }
             else {
                 echo "not success";
                 echo $query;
-                
+
             }
             die();
         
