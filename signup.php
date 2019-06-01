@@ -47,7 +47,7 @@
     $query = 'INSERT INTO users_table (username, phone, email, hashpassword) VALUES (:username, :phone, :email, :hashpassword)'; 
     $stmt = $db->prepare($query);
     $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-    $stmt->bindValue(':phone', $phone, PDO::PARAM_INT);
+    $stmt->bindValue(':phone', $phone, PDO::PARAM_NUM);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
     $stmt->bindValue(':hashpassword', $password, PDO::PARAM_STR);
     $stmt->execute();    
