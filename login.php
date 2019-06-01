@@ -77,20 +77,18 @@
          echo $checkMail;
          
          try {
-            $query = 'SELECT email, hashpassword FROM users_table WHERE email = :email AND hashpassword = :hashpassword';
+            $query = 'SELECT * FROM users_table WHERE email = :email AND hashpassword = :hashpassword';
             
             $stmt = $db->prepare($query);
             $stmt->bindValue(':email', $email, PDO::PARAM_STR);
             $stmt->bindValue(':hashpassword', $param_password, PDO::PARAM_STR);
             $stmt->execute();   
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if (sizeof($rows) >= 1) {
+            if ($rows) {
                 echo "query success";
             }
             else {
                 echo "not success";
-                echo $query;
-
             }
             die();
         
