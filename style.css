@@ -8,6 +8,11 @@ body {
   margin: 50px auto;
 }
 
+.wrapper {
+  max-width: 500px;
+  margin: 50px auto;
+}
+
 #logo-img {
   width: 219px;
 }
