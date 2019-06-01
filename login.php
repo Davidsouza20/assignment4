@@ -5,7 +5,7 @@
 
         $checkMail = trim($_POST["email"]);
         $password = trim($_POST["password"]);
-        $param_password = password_hash($password, PASSWORD_DEFAULT);
+       
         /*if (count($results) >= 1) {            
              header("location: index.php");
           }else {
@@ -29,7 +29,6 @@
         $password_err = "Password must have atleast 6 characters.";
     } else{
         $password = trim($_POST["password"]);
-        $param_password = password_hash($password, PASSWORD_DEFAULT);
     }
 
 ?>
@@ -79,6 +78,9 @@
             $stmt = $db->prepare($query);
             $stmt->execute();   
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if(password_verify($password, $rows[0]['hashpasswprd'])) {
+                echo "Success";
+            }
             var_dump($rows);
             die();
         
