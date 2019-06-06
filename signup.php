@@ -36,8 +36,8 @@
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+    } elseif(strlen(trim($_POST["password"])) <= 7){
+        $password_err = "Password must have atleast 7 characters.";
     } else{
         $password = trim($_POST["password"]);
         $param_password = password_hash($password, PASSWORD_DEFAULT);
@@ -122,7 +122,7 @@
     
     }
     catch (Exception $ex) {
-        //echo "I am getting the following error:  $ex";
+        echo "I am getting the following error:  $ex";
         die();
     }
 
