@@ -16,8 +16,8 @@
 
     $id = $_GET['id'];
     $query = "SELECT * FROM products WHERE id = '$id'"; 
-    $statement = $db->query($query);
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    /*$statement = $db->query($query);
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);*/
     //array_push($_SESSION['cart'], $results);
 
 ?>
