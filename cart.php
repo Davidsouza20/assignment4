@@ -19,7 +19,7 @@
     $statement = $db->query($query);
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     die();
-    array_push($_SESSION['cart'], $results);
+    //array_push($_SESSION['cart'], $results);
 
 ?>
 
@@ -75,7 +75,7 @@
 <div id="grid-container">
     <h1>Shopping Cart</h1><br>
 
-<?php echo $id; ?> 
+<?php echo $id; echo $results; ?> 
 <table class="table">
         <table class="table">
             <thead>
@@ -87,7 +87,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($_SESSION['cart'] as $key => $value) {?>
+                <?php foreach ($results as $key => $value) {?>
                     <tr>
                     <td><?php echo $value['name']; ?></td>
                     <td><?php echo '1' ?></td>
