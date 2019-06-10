@@ -12,7 +12,7 @@
         echo "Welcome Dear <h1>" . $_SESSION['login_user']. "</h1>";
     }
 
-    $id = $_POST['id'];
+    $id = $_GET['id'];
     $query = "SELECT * FROM products WHERE id = '$id'"; 
 
 
