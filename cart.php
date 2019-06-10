@@ -1,7 +1,10 @@
 <?php 
     include("dbconection.php");
     session_start();
-    $_SESSION['cart'] = array();
+    if (empty($_SESSION['cart'])) {
+      $_SESSION['cart'] = array();
+    }
+   
     if(!isset($_SESSION['login_user']))
     {
         // not logged in
