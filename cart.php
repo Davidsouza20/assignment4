@@ -17,7 +17,7 @@
     }
 
 
-    $id = intval($_GET['id']);
+    $id = $_GET['id'];
     try {
       $query = "SELECT * FROM products WHERE id = '$id'"; 
       $statement = $db->query($query);
