@@ -12,7 +12,8 @@
         echo "Welcome Dear <h1>" . $_SESSION['login_user']. "</h1>";
     }
 
-
+    $id = $_POST['id'];
+    $query = "SELECT * FROM products WHERE id = '$id'"; 
 
 
 ?>
@@ -68,6 +69,8 @@
 
 <div id="grid-container">
     <h1>Shopping Cart</h1><br>
+
+<?php echo $id; ?> 
 <table class="table">
         <table class="table">
             <thead>
@@ -97,7 +100,7 @@
 </div>  
 
 <footer class="footer">
-      <p id="copyright">Copyright © 2019 Hellen Fitness</p>
+      <p id="copyright">Copyright ï¿½ 2019 Hellen Fitness</p>
 
 </footer>
 
