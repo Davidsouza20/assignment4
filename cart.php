@@ -15,10 +15,17 @@
 
 
     $id = $_GET['id'];
-    $query = "SELECT * FROM products WHERE id = '$id'"; 
-    $statement = $db->query($query);
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    //array_push($_SESSION['cart'], $results);
+    try {
+      $query = "SELECT * FROM products WHERE id = '$id'"; 
+      $statement = $db->query($query);
+      $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+      //array_push($_SESSION['cart'], $results);
+    }
+    catch (Exception $ex) {
+      echo "I am getting the following error:  $ex";
+      die();
+  }
+
 
 ?>
 
