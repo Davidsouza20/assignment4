@@ -1,6 +1,7 @@
 <?php 
-
+    include("dbconection.php");
     session_start();
+    $_SESSION['cart'] = array();
     if(!isset($_SESSION['login_user']))
     {
         // not logged in
@@ -12,9 +13,13 @@
         echo "Welcome Dear <h1>" . $_SESSION['login_user']. "</h1>";
     }
 
+
     $id = $_GET['id'];
     $query = "SELECT * FROM products WHERE id = '$id'"; 
-
+    $statement = $db->query($query);
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    die();
+    array_push($_SESSION['cart'], $results);
 
 ?>
 
@@ -84,9 +89,9 @@
             <tbody>
                 <?php foreach ($_SESSION['cart'] as $key => $value) {?>
                     <tr>
-                    <td><?php echo $value['hidden_name']; ?></td>
+                    <td><?php echo $value['name']; ?></td>
                     <td><?php echo '1' ?></td>
-                    <td><?php echo number_format((float)$value['hidden_price'], 2, '.', ''); ?></td>
+                    <td><?php echo number_format((float)$value['price'], 2, '.', ''); ?></td>
                     <td onclick="" class="btn btn-danger">x</td>
                     </tr>
                     <?php } ?>
