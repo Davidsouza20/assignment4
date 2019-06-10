@@ -1,7 +1,7 @@
 <?php 
     include("dbconection.php");
     session_start();
-    $_SESSION['cart'] = array();
+    //$_SESSION['cart'] = array();
     if(!isset($_SESSION['login_user']))
     {
         // not logged in
@@ -18,7 +18,6 @@
     $query = "SELECT * FROM products WHERE id = '$id'"; 
     $statement = $db->query($query);
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    die();
     //array_push($_SESSION['cart'], $results);
 
 ?>
