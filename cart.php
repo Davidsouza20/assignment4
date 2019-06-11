@@ -3,7 +3,7 @@
     session_start();
     include("dbconection.php");
     if (empty($_SESSION['cart'])) {
-      $_SESSION['cart'][] = $cart;
+      $_SESSION['cart'];
     }
    
     if(!isset($_SESSION['login_user']))
@@ -24,7 +24,7 @@
       $stmt = $db->prepare($query);
       $stmt->execute();   
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      array_push($cart, $results);
+      array_push($_SESSION['cart'], $results);
     }
     catch (Exception $ex) {
       echo "I am getting the following error:  $ex";
@@ -86,7 +86,7 @@
 <div id="grid-container">
     <h1>Shopping Cart</h1><br>
 
-<?php echo $id; echo $query;  var_dump($cart); ?> 
+<?php echo $id; echo $query;  var_dump($_SESSION['cart']); ?> 
 <table class="table">
         <table class="table">
             <thead>
