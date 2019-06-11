@@ -20,8 +20,8 @@
     $id = intval($_GET['id']);
     try {
       $query = "SELECT * FROM products WHERE id = $id"; 
-      $statement = $db->query($query);
-      $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $results = $db->query($query);
+      //$results = $statement->fetchAll(PDO::FETCH_ASSOC);
       array_push($_SESSION['cart'], $results);
     }
     catch (Exception $ex) {
