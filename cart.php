@@ -3,7 +3,7 @@
     session_start();
     include("dbconection.php");
     if (empty($_SESSION['cart'])) {
-      $_SESSION['cart'];
+      $_SESSION['cart'] = array();
     }
    
     if(!isset($_SESSION['login_user']))
