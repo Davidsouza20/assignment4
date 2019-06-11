@@ -67,7 +67,7 @@ foreach ($db->query($query) as $row) {
     echo ' <h4 class="text-center card-title"> $' .$price. '</h4>';
     echo '<p class="text-center card-text">' .$row['description']. '</p>';
     echo '<div class="row justify-content-center">';
-    echo '<a href="cart.php?id='.$id. '" class="btn btn-primary">I Want</a>';
+    echo '<a href="cart.php?id='.$id.'" class="btn btn-primary">I Want</a>';
     echo '</div></div></div>';
     }
   ?> 

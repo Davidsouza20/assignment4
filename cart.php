@@ -36,8 +36,7 @@
       die();
   }
 
-  $quantity = array_count_values($_SESSION['cart']);
-
+ 
 ?>
 
 
