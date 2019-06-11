@@ -98,7 +98,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($_SESSION['cart'] as $key=> $value) {?>
+                <?php foreach ($results as $key=> $value) {?>
                     <tr>
                     <td><?php echo $value[1]['name']; ?></td>
                     <td><?php echo '1' ?></td>
