@@ -86,7 +86,7 @@
 <div id="grid-container">
     <h1>Shopping Cart</h1><br>
 
-<?php echo $id; echo $query;  var_dump($results); ?> 
+<?php echo $id; echo $query;  var_dump($_SESSION['cart']); ?> 
 <table class="table">
         <table class="table">
             <thead>
