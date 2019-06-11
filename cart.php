@@ -17,7 +17,7 @@
     }
 
 
-    $id = number($_GET['id']);
+    $id = intval($_GET['id']);
     try {
       $query = "SELECT * FROM products WHERE id = '$id'"; 
       $statement = $db->query($query);
@@ -84,7 +84,7 @@
 <div id="grid-container">
     <h1>Shopping Cart</h1><br>
 
-<?php echo $id; echo $results; ?> 
+<?php echo $id; echo $query; ?> 
 <table class="table">
         <table class="table">
             <thead>
