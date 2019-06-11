@@ -24,7 +24,12 @@
       $stmt = $db->prepare($query);
       $stmt->execute();   
       $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      array_push($_SESSION['cart'], $results);
+      foreach ($results as $result) {
+        $item->name = $result['name'];
+        $item->price = $result['price'];
+        array_push($_SESSION['cart'], $item);
+      }
+      
     }
     catch (Exception $ex) {
       echo "I am getting the following error:  $ex";
