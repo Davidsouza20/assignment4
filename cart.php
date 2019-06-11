@@ -36,6 +36,7 @@
       die();
   }
 
+  $quantity = array_count_values($_SESSION['cart']);
 
 ?>
 
@@ -91,7 +92,7 @@
 <div id="grid-container">
     <h1>Shopping Cart</h1><br>
 
-<?php echo $id; echo $query;  var_dump($_SESSION['cart']); ?> 
+<?php echo $id; echo $query;  var_dump($quantity); ?> 
 <table class="table">
         <table class="table">
             <thead>
