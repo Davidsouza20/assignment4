@@ -17,7 +17,7 @@
     }
 
 
-    $id = $_GET['id'];
+    $id = number($_GET['id']);
     try {
       $query = "SELECT * FROM products WHERE id = '$id'"; 
       $statement = $db->query($query);
