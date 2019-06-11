@@ -103,7 +103,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($results as $value) {?>
+                <?php foreach ($_SESSION['cart'] as $value) {?>
                     <tr>
                     <td><?php echo $value['name']; ?></td>
                     <td><?php echo '1' ?></td>
