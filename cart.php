@@ -84,7 +84,7 @@
 <div id="grid-container">
     <h1>Shopping Cart</h1><br>
 
-<?php echo $id; echo $query; ?> 
+<?php echo $id; echo $query;  echo $results; ?> 
 <table class="table">
         <table class="table">
             <thead>
