@@ -103,11 +103,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($_SESSION['cart'] as $key => $value) {?>
+                <?php foreach ($_SESSION['cart'] as $value) {?>
                     <tr>
-                    <td><?php echo $value['name']; ?></td>
+                    <td><?php echo $value->name; ?></td>
                     <td><?php echo '1' ?></td>
-                    <td><?php echo number_format((float)$value['price'], 2, '.', ''); ?></td>
+                    <td><?php echo number_format((float)$value->price, 2, '.', ''); ?></td>
                     <td onclick="" class="btn btn-danger">x</td>
                     </tr>
                     <?php } ?>
