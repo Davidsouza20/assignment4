@@ -1,6 +1,7 @@
 <?php 
-    include("dbconection.php");
+  
     session_start();
+    include("dbconection.php");
     if (empty($_SESSION['cart'])) {
       $_SESSION['cart'] = array();
     }
